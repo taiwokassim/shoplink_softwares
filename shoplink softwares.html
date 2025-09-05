@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoplink Softwares</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background: #f4f4f9;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    header {
+      background: linear-gradient(135deg, #004080, #0066cc);
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeDown 1.2s ease-in-out;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    nav {
+      background: #003366;
+      padding: 12px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #00ccff;
+    }
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeUp 1.2s ease-in-out;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #004080;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: #00ccff;
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 5px;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    footer {
+      background: #003366;
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 40px;
+    }
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Shoplink Softwares</h1>
+    <p>Innovating with Web2, Web3, Games, Animations & Hardware Solutions</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home">
+    <h2>Welcome to Shoplink Softwares</h2>
+    <p>
+      At Shoplink Softwares, we specialize in cutting-edge solutions across Web2, Web3, 
+      game development, cartoon animations, and computer hardware. Our mission is to 
+      combine creativity with technology to deliver impactful results for individuals 
+      and businesses.
+    </p>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p><strong>Registered Name:</strong> Shoplink Softwares</p>
+    <p><strong>Business Registration No:</strong> BN 3713930</p>
+    <p><strong>Date of Registration:</strong> 25th July, 2022</p>
+    <p><strong>Nature of Business:</strong> Programming and Software Development Services</p>
+    <p>
+      Shoplink Softwares is officially registered with the Corporate Affairs Commission (CAC) 
+      under the Companies and Allied Matters Act 2020. We bring together years of experience in 
+      software engineering, blockchain, gaming, animation, and hardware systems to provide 
+      world-class services.
+    </p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Web2 Development</h3>
+        <p>High-quality web applications using modern tools and frameworks.</p>
+      </div>
+      <div class="card">
+        <h3>Web3 Solutions</h3>
+        <p>Blockchain-based dApps, token development, and smart contract services.</p>
+      </div>
+      <div class="card">
+        <h3>Game Development</h3>
+        <p>Engaging 2D/3D games designed with creativity and interactivity in mind.</p>
+      </div>
+      <div class="card">
+        <h3>Cartoon Animations</h3>
+        <p>Custom animations for branding, entertainment, and storytelling.</p>
+      </div>
+      <div class="card">
+        <h3>Computer Hardware</h3>
+        <p>Hardware maintenance, repairs, and system optimization services.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Address:</strong> No 107 Equitable Estate, Igbe Lara Road, Ikorodu, Lagos State</p>
+    <p>
+  <strong>Telegram:</strong> 
+  <a href="https://t.me/taiwo_kassim" target="_blank" style="color:#00ccff; text-decoration:none; font-weight:bold;">
+    @taiwo_kassim
+  </a>
+</p>
+
+    <p><strong>Phone:</strong> +234 7086567812, +2348183004418</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Shoplink Softwares. All rights reserved.</p>
+    <p>Business Name Registration No: BN 3713930</p>
+  </footer>
+
+  <script>
+    // Smooth scrolling animation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
