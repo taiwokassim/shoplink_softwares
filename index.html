@@ -3,194 +3,369 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shoplink Softwares</title>
+  <title>Shoplink Softwares | Engineering Excellence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&family=Outfit:wght@100;300;600&display=swap" rel="stylesheet">
   <style>
+    /* Theme Definitions */
+    :root {
+      --bg: #080808;
+      --accent: #ffffff;
+      --text-main: #fcfcfc;
+      --text-muted: #808080;
+      --line: rgba(255, 255, 255, 0.08);
+      --nav-bg: rgba(8, 8, 8, 0.8);
+      --card-hover: #111111;
+      --transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    [data-theme="light"] {
+      --bg: #f5f5f7;
+      --accent: #000000;
+      --text-main: #1d1d1f;
+      --text-muted: #6e6e73;
+      --line: rgba(0, 0, 0, 0.08);
+      --nav-bg: rgba(245, 245, 247, 0.8);
+      --card-hover: #ffffff;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
     }
+
     body {
-      background: #f4f4f9;
-      color: #333;
-      line-height: 1.6;
-      overflow-x: hidden;
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Outfit', sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
     }
+
+    /* Precision Grid Overlay */
+    .grid-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 80px 80px;
+      z-index: -1;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 5%;
+      z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      letter-spacing: -1px;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 400;
+      transition: opacity 0.3s;
+    }
+
+    .nav-links a:hover { opacity: 0.6; }
+
+    /* Theme Toggle Switch */
+    .theme-toggle {
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 2px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+      letter-spacing: 1px;
+      transition: transform 0.2s;
+    }
+
+    .theme-toggle:active { transform: scale(0.95); }
+
+    /* Hero Layout */
     header {
-      background: linear-gradient(135deg, #004080, #0066cc);
-      color: #fff;
-      padding: 60px 20px;
-      text-align: center;
-      animation: fadeDown 1.2s ease-in-out;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 10%;
     }
+
+    .hero-label {
+      font-size: 0.7rem;
+      letter-spacing: 5px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
     header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3rem, 12vw, 8.5rem);
+      line-height: 0.85;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      margin-bottom: 40px;
     }
+
     header p {
       font-size: 1.2rem;
-      opacity: 0.9;
+      max-width: 550px;
+      font-weight: 300;
+      color: var(--text-muted);
     }
-    nav {
-      background: #003366;
-      padding: 12px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #00ccff;
-    }
+
+    /* Section Structure */
     section {
-      padding: 50px 20px;
-      max-width: 1000px;
-      margin: auto;
-      animation: fadeUp 1.2s ease-in-out;
+      padding: 140px 10%;
+      border-top: 1px solid var(--line);
     }
+
     h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      text-align: center;
-      color: #004080;
-      position: relative;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 400;
+      margin-bottom: 60px;
+      letter-spacing: -0.02em;
     }
-    h2::after {
-      content: '';
-      width: 60px;
-      height: 4px;
-      background: #00ccff;
-      display: block;
-      margin: 10px auto 0;
-      border-radius: 5px;
+
+    .content-block {
+      max-width: 850px;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--text-muted);
     }
-    .services {
+
+    /* Registry Table */
+    .about-table {
+      width: 100%;
+      margin-top: 80px;
+      border-collapse: collapse;
+    }
+
+    .about-table td {
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.95rem;
+    }
+
+    .about-table .label {
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      width: 30%;
+    }
+
+    /* Modular Service Grid */
+    .service-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1px;
+      background: var(--line);
+      margin-top: 50px;
     }
-    .card {
-      background: #fff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
+
+    .service-item {
+      background: var(--bg);
+      padding: 80px 50px;
+      transition: background var(--transition);
     }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+    .service-item:hover {
+      background: var(--card-hover);
     }
+
+    .service-item h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+
+    .service-item p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* Contact Architecture */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+    }
+
+    .contact-link {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 2.2rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 25px;
+      border-bottom: 3px solid var(--accent);
+      transition: opacity 0.3s;
+    }
+
+    /* Footer */
     footer {
-      background: #003366;
-      color: #fff;
-      text-align: center;
-      padding: 20px 10px;
-      margin-top: 40px;
+      padding: 60px 10%;
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-top: 1px solid var(--line);
     }
-    /* Animations */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1024px) {
+      header h1 { font-size: 5.5rem; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 50px; }
+      .nav-links { display: none; } /* Mobile cleanup */
     }
   </style>
 </head>
 <body>
+
+  <div class="grid-bg"></div>
+
+  <nav>
+    <div class="nav-logo">Shoplink</div>
+    <div class="controls">
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Expertise</a>
+        <a href="#contact">Terminal</a>
+      </div>
+      <button class="theme-toggle" id="theme-switch" onclick="toggleTheme()">Toggle Theme</button>
+    </div>
+  </nav>
+
   <header>
-    <h1>Shoplink Softwares</h1>
+    <div class="hero-label">Software Architecture // Ref. 2022.07</div>
+    <h1>Shoplink<br>Softwares.</h1>
     <p>Innovating with Web2, Web3, Games, Animations & Hardware Solutions</p>
   </header>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About Us</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section id="home">
+  <section id="about">
     <h2>Welcome to Shoplink Softwares</h2>
-    <p>
+    <p class="content-block">
       At Shoplink Softwares, we specialize in cutting-edge solutions across Web2, Web3, 
       game development, cartoon animations, and computer hardware. Our mission is to 
       combine creativity with technology to deliver impactful results for individuals 
       and businesses.
     </p>
-  </section>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p><strong>Registered Name:</strong> Shoplink Softwares</p>
-    <p><strong>Business Registration No:</strong> BN 3713930</p>
-    <p><strong>Date of Registration:</strong> 25th July, 2022</p>
-    <p><strong>Nature of Business:</strong> Programming and Software Development Services</p>
-    <p>
-      Shoplink Softwares is officially registered with the Corporate Affairs Commission (CAC) 
-      under the Companies and Allied Matters Act 2020. We bring together years of experience in 
-      software engineering, blockchain, gaming, animation, and hardware systems to provide 
-      world-class services.
+    <table class="about-table">
+      <tr><td class="label">Registry</td><td>Shoplink Softwares</td></tr>
+      <tr><td class="label">CAC Number</td><td>BN 3713930</td></tr>
+      <tr><td class="label">Date</td><td>25th July, 2022</td></tr>
+      <tr><td class="label">Primary Focus</td><td>Programming and Software Development Services</td></tr>
+    </table>
+
+    <p style="margin-top: 60px; color: var(--text-muted); font-weight: 300; max-width: 800px;">
+      Officially registered under the Companies and Allied Matters Act 2020. We bring together 
+      years of institutional experience in software engineering, blockchain protocols, high-fidelity 
+      gaming, and hardware systems.
     </p>
   </section>
 
-  <section id="services">
-    <h2>Our Services</h2>
-    <div class="services">
-      <div class="card">
+  <section id="services" style="padding: 0;">
+    <div class="service-grid">
+      <div class="service-item">
         <h3>Web2 Development</h3>
-        <p>High-quality web applications using modern tools and frameworks.</p>
+        <p>Scalable web applications engineered with modern frameworks for global performance.</p>
       </div>
-      <div class="card">
+      <div class="service-item">
         <h3>Web3 Solutions</h3>
-        <p>Blockchain-based dApps, token development, and smart contract services.</p>
+        <p>Blockchain infrastructure, decentralized applications, and smart contract security.</p>
       </div>
-      <div class="card">
+      <div class="service-item">
         <h3>Game Development</h3>
-        <p>Engaging 2D/3D games designed with creativity and interactivity in mind.</p>
+        <p>High-fidelity 2D/3D environments designed for deep engagement and interactivity.</p>
       </div>
-      <div class="card">
+      <div class="service-item">
         <h3>Cartoon Animations</h3>
-        <p>Custom animations for branding, entertainment, and storytelling.</p>
+        <p>Custom motion graphics and storytelling for branding and digital ecosystems.</p>
       </div>
-      <div class="card">
+      <div class="service-item" style="grid-column: 1 / -1; text-align: center;">
         <h3>Computer Hardware</h3>
-        <p>Hardware maintenance, repairs, and system optimization services.</p>
+        <p>System-level optimization, industrial maintenance, and hardware-software integration.</p>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2>Contact Us</h2>
-    <p><strong>Address:</strong> No 107 Equitable Estate, Igbe Road, Lagos State</p>
-    <p>
-  <strong>Telegram:</strong> 
-  <a href="https://t.me/taiwokassim" target="_blank" style="color:#00ccff; text-decoration:none; font-weight:bold;">
-    @taiwo_kassim
-  </a>
-</p>
-
-    <p><strong>Phone:</strong> +234 7086567812</p>
+    <div class="contact-wrap">
+      <div>
+        <span class="hero-label">Corporate HQ</span>
+        <h2>Reach Out.</h2>
+        <p style="color: var(--text-muted);">No 107 Equitable Estate, Igbe Road, Lagos State</p>
+        <p style="color: var(--text-muted); font-weight: 600; margin-top: 10px;">+234 7086567812</p>
+      </div>
+      <div>
+        <span class="hero-label">Secure Messaging</span><br>
+        <a href="https://t.me/taiwokassim" target="_blank" class="contact-link">@taiwo_kassim</a>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Shoplink Softwares. All rights reserved.</p>
-    <p>Business Name Registration No: BN 3713930</p>
+    <div>© 2026 Shoplink Softwares</div>
+    <div>Institutional Engineering</div>
   </footer>
 
   <script>
-    // Smooth scrolling animation
+    // Theme Engine
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+
+    // Load saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -202,7 +377,3 @@
   </script>
 </body>
 </html>
-
-
-
-
