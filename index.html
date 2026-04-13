@@ -379,6 +379,20 @@
     const savedTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
 
+
+  
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+  
+  <script>
 function toggleMenu() {
   const menu = document.getElementById('mobileMenu');
   const btn = document.querySelector('.menu-btn');
@@ -389,18 +403,9 @@ function toggleMenu() {
   // Prevent scrolling when menu is open
   document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
 }
-    
+
 
     
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
   </script>
 </body>
 </html>
