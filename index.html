@@ -19,7 +19,7 @@
       --card-hover: #111111;
       --transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     }
-    
+
     [data-theme="light"] {
       --bg: #f5f5f7;
       --accent: #000000;
@@ -275,20 +275,6 @@
       </div>
       <button class="theme-toggle" id="theme-switch" onclick="toggleTheme()">Toggle Theme</button>
     </div>
-
-  <button class="menu-btn" onclick="toggleMenu()">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
-
-<div class="mobile-overlay" id="mobileMenu">
-  <a href="#about" onclick="toggleMenu()">About</a>
-  <a href="#services" onclick="toggleMenu()">Expertise</a>
-  <a href="#contact" onclick="toggleMenu()">Terminal</a>
-</div>
-    
-    
   </nav>
 
   <header>
@@ -379,8 +365,6 @@
     const savedTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
 
-
-  
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -390,22 +374,6 @@
         });
       });
     });
-  </script>
-  
-  <script>
-function toggleMenu() {
-  const menu = document.getElementById('mobileMenu');
-  const btn = document.querySelector('.menu-btn');
-  
-  menu.classList.toggle('active');
-  btn.classList.toggle('active');
-  
-  // Prevent scrolling when menu is open
-  document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
-}
-
-
-    
   </script>
 </body>
 </html>
